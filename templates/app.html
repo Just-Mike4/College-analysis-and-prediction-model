@@ -2,71 +2,82 @@
 <html>
 
 <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: rgb(94, 118, 163);
         }
     </style>
     <title>
-        Weather Prediction
+        College Prediction Model
     </title>
 </head>
 
-<body>
-    <h1 align="center"><b>College Prediction Model</b></h1>
-    <form align="center" action="{{ url_for('predict')}}" method="post">
-        <select id="type_school" name="type_school">
-            <optgroup label="type_school">
-                        <option value="0">Academic</option>
-                        <option value="1">Vocational</option>
-            </optgroup>
-        </select>
-        <select id="school_accreditation" name="school_accreditation">
-          <optgroup label="school_accreditation">
-                    <option value="0">A</option>
-                    <option value="1">B</option>
-          </optgroup>
-         </select>
-        <select id="gender" name="gender">
-          <optgroup label="gender">
-                    <option value="1">Male</option>
-                    <option value="0">Female</option>
-          </optgroup>
-         </select>
-        <select id="interest" name="interest">
-          <optgroup label="interest">
-                    <option value="4">Very Interested</option>
-                    <option value="3">Uncertain</option>
-                    <option value="0">Less Interested</option>
-                    <option value="2">Quiet Interested</option>
-                    <option value="1">Not Interested</option>
-          </optgroup>
-         </select>
-        <select id="residence" name="residence">
-          <optgroup label="residence">
-                    <option value="1">Urban</option>
-                    <option value="0">Rural</option>
-          </optgroup>
-         </select>
-
-        <input type="text" name="parent_age" placeholder="parent_age" />
-        <input type="text" name="parent_salary" placeholder="parent_salary" />
-        <input type="text" name="average_grades" placeholder="average_grades" />
-
-        <select id="parent_was_in_college" name="parent_was_in_college">
-          <optgroup label="parent_was_in_college">
-                    <option value="1">True</option>
-                    <option value="0">False</option>
-          </optgroup>
-         </select>
-        <br>
-        <br>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+<body class="d-flex flex-column align-items-center">
+    <h1 class="text-center my-4"><b>College Prediction Model</b></h1>
+    <form class="w-50" action="{{ url_for('predict')}}" method="post">
+        <div class="form-group">
+            <label for="type_school">Type of School</label>
+            <select class="form-control" id="type_school" name="type_school">
+                <option value="0">Academic</option>
+                <option value="1">Vocational</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="school_accreditation">School Accreditation</label>
+            <select class="form-control" id="school_accreditation" name="school_accreditation">
+                <option value="0">A</option>
+                <option value="1">B</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender" name="gender">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="interest">Interest</label>
+            <select class="form-control" id="interest" name="interest">
+                <option value="4">Very Interested</option>
+                <option value="3">Uncertain</option>
+                <option value="0">Less Interested</option>
+                <option value="2">Quite Interested</option>
+                <option value="1">Not Interested</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="residence">Residence</label>
+            <select class="form-control" id="residence" name="residence">
+                <option value="1">Urban</option>
+                <option value="0">Rural</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="parent_age">Parent Age</label>
+            <input type="text" class="form-control" id="parent_age" name="parent_age" placeholder="Parent Age">
+        </div>
+        <div class="form-group">
+            <label for="parent_salary">Parent Salary</label>
+            <input type="text" class="form-control" id="parent_salary" name="parent_salary" placeholder="Parent Salary">
+        </div>
+        <div class="form-group">
+            <label for="average_grades">Average Grades</label>
+            <input type="text" class="form-control" id="average_grades" name="average_grades" placeholder="Average Grades">
+        </div>
+        <div class="form-group">
+            <label for="parent_was_in_college">Parent Was in College</label>
+            <select class="form-control" id="parent_was_in_college" name="parent_was_in_college">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Predict</button>
     </form>
 
     <br>
-    <br>
-    <p align="center"> {{prediction_text}} </p>
+    <p class="text-center"> {{prediction_text}} </p>
 </body>
 
 </html>

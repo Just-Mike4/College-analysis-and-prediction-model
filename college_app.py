@@ -17,7 +17,10 @@ def predict():
           values=[list(value.values())]
           print(values)
           prediction=model.predict(values)
-          return render_template("app.html",prediction_text = "You will stay in school {}".format(prediction))
+          if prediction == False:
+                    return render_template("app.html",prediction_text = "You are likely to drop out of school")
+          else:
+                    return render_template("app.html",prediction_text = "You are likely to stay in school")
 
 if __name__=="__main__":
           app.run(debug=True)
